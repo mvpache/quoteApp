@@ -15,8 +15,7 @@ class QuoteDisplay extends Component {
       .then(res => {
         const quote = res.data;
         this.setState({ quote })
-      });
-  }
+      })};
 
   reLoad = () => {
     axios.get(`https://talaikis.com/api/quotes/random/`)
@@ -25,14 +24,18 @@ class QuoteDisplay extends Component {
         this.setState({ quote })
       });  
   }
-  
+
   render() {
+    let url = '';
     return (
       <div>
         <h1>{this.state.quote.quote}</h1>
         <h2>{this.state.quote.author}</h2>
         <br/>
         <button onClick={this.reLoad}>New Quote, please!</button>
+        <br/>
+        <div>
+        </div>
       </div>
     );
   }
